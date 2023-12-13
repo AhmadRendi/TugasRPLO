@@ -1,0 +1,87 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/totalPenabungan.css" />
+    <title>Bank Sampah</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-logo">
+        <img src="../view/image/logo.png" alt="" id="logo" />
+        <img src="../view/image/logo2.png" alt="" id="logo2" />
+      </div>
+      <div class="container-content">
+        <div class="container-side-bar">
+          <ul>
+            <li><a href="menu.html" id="menu">MENU</a></li>
+            <li><a href="penabungan.html" id="penabungan">PENABUNGAN</a></li>
+            <li><a href="totalPenabungan.html" id="totalPenabungan">TOTAL TABUNGAN</a></li>
+          </ul>
+        </div>
+        <div class="content">
+        <div class="container-content-penabungan">
+            <div class="label">
+              <form method="post">
+                <label for="id">ID NASABAH</label>
+            </div>
+            <div class="input">
+              <input type="text" name="id" id="id" />
+              <br><br>
+                <button type="button" onclick="getData()" id="submit">Refresh</button>
+            </form>
+            </div>
+          </div> 
+          <div class="table">
+            <table>
+                <tr>
+                    <th>Nama Nasabah</th>
+                    <th>SALDO TABUNGAN</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p id="nameUser"></p>
+                    </td>
+                    <td>
+                        <p id="tabungan"></p>
+                    </td>
+                </tr>
+              </table> 
+          </div>
+        </div>
+          <div>
+          </div>
+      </div>
+    </div>
+
+  <script>
+      function getData(){
+          const id = document.getElementById("id").value;
+
+
+          const TabunganDto = {
+              "id" : id
+          }
+
+          fetch("http://localhost:8080/api/tabungan/get", {
+              method : "POST",
+              headers : {
+                  "Content-Type" : "application/json"
+              },
+              body: JSON.stringify(TabunganDto)
+          })
+              .then(response => response.json())
+              .then(data => {
+                  console.log("Response from server:", data);
+                  const totalTabungan = document.getElementById("tabungan");
+                  const names = document.getElementById("nameUser");
+                  //
+                  names.innerText = data.data.name;
+                  totalTabungan.innerText = data.data.saldo;
+              })
+              .catch(error => console.error("Error " , error));
+      }
+  </script>
+  </body>
+</html>

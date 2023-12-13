@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/penabungan.css" />
+    <title>Bank Sampah</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-logo">
+        <img src="../view/image/logo.png" alt="" id="logo" />
+        <img src="../view/image/logo2.png" alt="" id="logo2" />
+      </div>
+      <div class="container-content">
+        <div class="container-side-bar">
+          <ul>
+            <li><a href="menu.html" id="menu">MENU</a></li>
+            <li><a href="penabungan.html" id="penabungan">PENABUNGAN</a></li>
+            <li><a href="totalPenabungan.html" id="totalPenabungan">TOTAL TABUNGAN</a></li>
+          </ul>
+        </div>
+        <div class="content">
+          <div class="container-content-penabungan">
+            <div class="label">
+              <form method="post">
+                <label for="id">ID NASABAH</label>
+                <br><br>
+                <label >JENIS SAMPAH</label>
+                <br><br>
+                <label for="berat">BERAT(KG) SAMPAH</label>
+            </div>
+                <div class="input">
+                  <input type="number" name="id" id="id" />
+                  <br><br>
+                  <select id="pilihan" name="pilihan">
+                    <option value="KORAN">KORAN</option>
+                    <option value="KERTAS">KERTAS</option>
+                    <option value="DUPLEX">DUPLEX</option>
+                    <option value="KARDUS">KARDUS</option>
+                    <option value="GELAS PLASTIK">GELAS PLASTIK</option>
+                    <option value="BOTOL PLASTIK">BOTOL PLASTIK</option>
+                    <option value="PLASTIK NON BOTOL">PLASTIK NON BOTOL</option>
+                    <option value="KACA">KACA</option>
+                    <option value="KALENG">KALENG</option>
+                    <option value="BESI">BESI</option>
+                  </select>
+                  <br><br>
+                  <input type="number" name="berat" id="berat">
+                  <br><br>
+                  <button type="button" onclick="submit1()" id="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div class="table">
+            <table>
+                <tr>
+                    <th>NO</th>
+                    <th>JENIS SAMPAH</th>
+                    <th>BERAT (KG)</th>
+                    <th>HARGA</th>
+                </tr>
+                <tr>
+                    <td>
+                      <p>1</p>
+                    </td>
+                    <td>
+                    <p id="jenSampah"></p>
+                    </td>
+                  <td>
+                    <p id="weigh"> </p>
+                  </td>
+                  <td>
+                    <p id="harga"> </p>
+                  </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+        <div>
+        </div>
+      </div>
+    </div>
+
+  <script>
+      function submit1(){
+          const id = document.getElementById("id").value;
+          const jenisSampah = document.getElementById("pilihan").value;
+          const berat = document.getElementById("berat").value;
+
+          const penabunganDto = {
+              "idUser" : id,
+              "jenisSampah" : jenisSampah,
+              "berat" : berat
+          }
+          fetch("http://localhost:8080/api/ge", {
+              method : "POST",
+              headers : {
+                  "Content-Type" : "application/json"
+              },
+              body: JSON.stringify(penabunganDto)
+          })
+              .then(response => response.json())
+              .then(data => {
+                  console.log("Response from server:", data);
+                  const jeSam = document.getElementById("jenSampah");
+                  const beratSampah = document.getElementById("weigh");
+                  const hargaSampah = document.getElementById("harga");
+
+                  jeSam.innerText = data.data.jenisSampah;
+                  beratSampah.innerText = data.data.berat;
+                  hargaSampah.innerText = data.data.debet;
+              })
+              .catch(error => console.error("Error :", ));
+
+          console.log("name : " + name)
+      }
+  </script>
+  </body>
+</html>

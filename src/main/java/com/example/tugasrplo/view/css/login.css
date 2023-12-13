@@ -1,0 +1,197 @@
+
+.background-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    background-image : url("../image/latar masjid.png");
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-login {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 55vh;
+    width: 65vh;
+    flex-direction: column;
+    border-radius: 20px;
+
+}
+
+.background-login2{
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: space-between;
+    height: 50vh;
+    width: 60vh;
+}
+
+.input{
+    margin-left: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+
+#loginName{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+}
+
+#loginPass{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+}
+
+img{
+    width: 200px;
+    height: 175px;
+}
+
+#LOGIN{
+    margin-top: 50px;
+    background-color: deepskyblue;
+    width: 150px;
+    height: 30px;
+    border-radius: 25px;
+}
+
+
+
+
+.bodiHome{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.containerHome {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.imageHome{
+    background-image: url("../image/bank sampah.png") ;
+    height: 100px;
+}
+
+
+
+.home {
+    flex: 1 100%;
+    background-color: #f0f0f0;
+    background-repeat: no-repeat ;
+    height: 250px;
+    width: 128px ;
+    display: flex;
+    border: 1px solid black ;
+}
+
+#imageHome1{
+    width: 240px;
+    height: 100%;
+}
+#nama_bsu{
+    width: 500px;
+    height: 100%;
+}
+
+.page2 {
+    background-color: white;
+    padding: 20px;
+    width: 200px;
+    height: 500px;
+    border: 1px solid black ;
+}
+
+.page3 {
+    background-image: url("../image/home1.png");
+    flex: 1 50%;
+    background-color: black;
+    padding: 20px;
+    height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a{
+    font-weight: bold;
+    color: black;
+}
+
+li{
+    font-size: 20px ;
+}
+
+.page3input{
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    height: max-content;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid black ;
+}
+
+#input_idNasabah{
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#input_jenisSampah{
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#input_berat_sampah{
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.label{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 19px;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    gap: 10px;
+    height: max-content;
+}
+
+.page3Penabungan{
+    border: 1px solid;
+}
+
+.table{
+    border: 1px solid
+}
+
+table{
+    border: 1px solid;
+}
+
+#menginput{
+    width: 100px;
+}
+
+
+

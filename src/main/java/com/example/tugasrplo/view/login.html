@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<form action=menu.html method="GET">
+<div class="background-container">
+    <div class="background-login">
+        <div class="background-login2">
+            <div class="input">
+                <label>USERNAME</label>
+                <input id="loginName" type="text"  name="username">
+                <hr style="width: 100%; border: 1px solid">
+                <br>
+                <label>PASSWORD</label>
+                <input id="loginPass" type="password"  name="password">
+                <hr style="width: 100%; border: 1px solid" >
+            </div>
+            <div>
+            <img src="image/bank%20sampah.png">
+            </div>
+        </div>
+        <button type="button" onclick="submitData()" id="LOGIN">Submit</button>
+    </div>
+</div>
+</form>
+<script>
+        function submitData() {
+        const username = document.getElementById("loginName").value;
+        const password = document.getElementById("loginPass").value;
+
+        const UserDTO = {
+        "username" : username,
+        "password" : password,
+    }
+        fetch("http://localhost:8080/api/user/login", {
+        method: "POST",
+        headers : {
+        "Content-Type" : "application/json"
+    },
+        body: JSON.stringify(UserDTO)
+    })
+        .then(response => response.json())
+        .then(data => {
+        console.log("Response from server:", data);
+    })
+        .catch(error => console.error("Error:", error));
+    }
+
+</script>
+</script>
+
+</body>
+</html>
